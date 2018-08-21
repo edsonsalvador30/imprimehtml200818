@@ -1,0 +1,44 @@
+<div class="two"> 
+  <datasource filter="" name="Prova" entity="api/cronapi/crud/app.entity.Prova" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource> 
+  <h1 class="lead component-holder text-left" xattr-position="text-left" data-component="crn-title" id="crn-title-419612">Exemplo de Prova</h1><div class="component-holder" data-component="crn-grid" id="crn-grid-Prova"> 
+    <div crn-datasource="Prova" class="" ng-hide="Prova.editing || Prova.inserting"> 
+      <table class="table  table-bordered table-hover table-striped"> 
+        <thead> 
+          <tr class="table-header"> 
+            <th class="active"> 
+              <div class="">
+                 Materia 
+              </div> </th> 
+            <th class=""> 
+              <div class="">
+                 Questao 
+              </div> </th> 
+            <th class=""> 
+              <div class="">
+                 Alternativas 
+              </div> </th> 
+          </tr> 
+        </thead> 
+        <tbody> 
+          <tr class="table-content" ng-repeat="rowData in datasource.data"> 
+            <td class="active"> 
+              <div class="">
+                 {{rowData.materia }} 
+              </div> </td> 
+            <td class=""> 
+              <div class="" ng-bind-html="rowData.questao | renderHTML">
+                 {{rowData.questao }} 
+              </div> </td> 
+            <td class=""> 
+              <div class="" ng-bind-html="rowData.alternativas | renderHTML">
+                 {{rowData.alternativas }} 
+              </div> </td> 
+          </tr> 
+        </tbody> 
+      </table> 
+      <div class="table-footer-controls"> 
+        <button class="btn btn-default btn-block btn-clicked" data-component="crn-button" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button> 
+      </div> 
+    </div> 
+  </div> 
+</div>
