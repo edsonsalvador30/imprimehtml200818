@@ -1,38 +1,31 @@
 <div class="two"> 
   <datasource filter="" name="Prova" entity="api/cronapi/crud/app.entity.Prova" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource> 
-  <h1 class="lead component-holder text-left" xattr-position="text-left" data-component="crn-title" id="crn-title-419612">Exemplo de Prova</h1><div class="component-holder" data-component="crn-grid" id="crn-grid-Prova"> 
+  <h1 class="lead component-holder text-left col-md-12" xattr-position="text-left" data-component="crn-title" id="crn-title-419612">Exemplo de Prova</h1>
+  <div class="component-holder " data-component="crn-grid" id="crn-grid-Prova"> 
     <div crn-datasource="Prova" class="" ng-hide="Prova.editing || Prova.inserting"> 
-      <table class="table  table-bordered table-hover table-striped"> 
+      <table class="table  table-bordered table-hover table-striped" ng-repeat="rowData in datasource.data"> 
         <thead> 
           <tr class="table-header"> 
             <th class="active"> 
               <div class="">
-                 Materia 
-              </div> </th> 
-            <th class=""> 
-              <div class="">
                  Questao 
+              </div><br> 
+              <div class="" ng-bind-html="rowData.questao | renderHTML">
+                 {{rowData.questao }} 
               </div> </th> 
-            <th class=""> 
-              <div class="">
-                 Alternativas 
-              </div> </th> 
+             
           </tr> 
         </thead> 
         <tbody> 
-          <tr class="table-content" ng-repeat="rowData in datasource.data"> 
+          <tr class="table-content"> 
             <td class="active"> 
               <div class="">
-                 {{rowData.materia }} 
-              </div> </td> 
-            <td class=""> 
-              <div class="" ng-bind-html="rowData.questao | renderHTML">
-                 {{rowData.questao }} 
-              </div> </td> 
-            <td class=""> 
+                 Alternativas 
+              </div> <br> 
               <div class="" ng-bind-html="rowData.alternativas | renderHTML">
                  {{rowData.alternativas }} 
               </div> </td> 
+             
           </tr> 
         </tbody> 
       </table> 

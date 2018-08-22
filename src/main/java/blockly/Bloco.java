@@ -19,9 +19,9 @@ public class Bloco {
 		return new Callable<Var>() {
 
 			public Var call() throws Exception {
-				cronapi.database.Operations.execute(Var.valueOf("app.entity.Teste"),
-						Var.valueOf("update Teste set nome = :nome where id = :id"),
-						Var.valueOf("nome", Var.valueOf("Jesus")), Var.valueOf("id", Var.valueOf(4)));
+				System.out.println(cronapi.list.Operations.getLast((cronapi.database.Operations
+						.query(Var.valueOf("app.entity.Prova"), Var.valueOf("select p.materia from Prova p"))))
+						.getObjectAsString());
 				return Var.VAR_NULL;
 			}
 		}.call();
